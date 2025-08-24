@@ -14,17 +14,24 @@
 </head>
 <body>
   <!-- Header -->
-  <header>
-    <h2>Harshal Portfolio</h2>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#timeline">Timeline</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <button class="btn" id="toggleMode">🌙 Dark Mode</button>
-  </header>
+<header>
+  <h2>Harshal Portfolio</h2>
+
+  <nav id="nav">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#timeline">Timeline</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+<div class="header-right">
+   <span id="toggleMode" class="dark-mode-icon">🌙</span>
+  <button class="menu-toggle" id="menuToggle">&#9776;</button>
+</div>
+
+</header>
+
 
   <!-- Hero -->
   <section class="hero">
@@ -166,10 +173,10 @@
       <a href="https://github.com/harshalpatil934" target="_blank">
         <i class="fab fa-github"></i>
       </a>
-      <a href="https://linkedin.com/in/harshalpatil934" target="_blank">
+      <a href="https://linkedin.com/in/harshal-patil-693524306" target="_blank">
         <i class="fab fa-linkedin"></i>
       </a>
-      <a href="mailto:harshalpatil934@gmail.com">
+      <a href="mailto:rp8838170@gmail.com">
         <i class="fas fa-envelope"></i>
       </a>
     </div>
@@ -191,11 +198,12 @@
     AOS.init({ duration: 1000 });
 
     // Dark Mode Toggle
-    const btn = document.getElementById('toggleMode');
-    btn.addEventListener('click', () => {
-      document.body.classList.toggle('dark');
-      btn.textContent = document.body.classList.contains('dark') ? '☀️ Light Mode' : '🌙 Dark Mode';
-    });
+   const toggleIcon = document.getElementById('toggleMode');
+
+toggleIcon.addEventListener('click', () => {
+  document.body.classList.toggle('dark');
+  toggleIcon.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+});
 
   const typingText = document.getElementById("typing-text");
     const words = ["Web Developer", "Data Analyst", "Full Stack Learner"];
@@ -243,6 +251,21 @@
         if (link.getAttribute("href") === "#" + current) link.classList.add("active");
       });
     });
+
+
+    // Hamburger Toggle
+const menuToggle = document.getElementById('menuToggle');
+const nav = document.getElementById('nav');
+
+menuToggle.addEventListener('click', () => {
+  nav.classList.toggle('active');
+});
+
+// Close menu when a link is clicked (mobile)
+document.querySelectorAll('nav a').forEach(link => {
+  link.addEventListener('click', () => nav.classList.remove('active'));
+});
+
   </script>
 </body>
 </html>
